@@ -3,17 +3,10 @@ pipeline {
 
   environment {
     DOCKER_CREDENTIALS = credentials('docker-hub')
-    GITHUB_REPO = 'https://github.com/abeskempirov/cicd-pipeline'
-    GITHUB_CREDENTIALS = 'github-cred'
     DOCKER_IMAGE_NAME = 'abesk/cicd_practice'
   }
 
   stages {
-    stage('Checkout GitHub Repository') {
-      steps {
-        git branch: 'main', url: "${GITHUB_REPO}", credentialsId: "${GITHUB_CREDENTIALS}"
-      }
-    }
 
     stage('Run Build Script') {
       steps {
